@@ -23,10 +23,12 @@ class QuestionsController < ApplicationController
     @question = Question.new(question_params)
     
     # QuestionモデルをDBへ保存
-    @question.save
-    
-    # showアクションにリダイレクト
-    redirect_to @question
+    if @question.save
+      # showアクションにリダイレクト
+      redirect_to @question
+    else
+      render 'new'
+    end
   end
   
   # 質問の編集
