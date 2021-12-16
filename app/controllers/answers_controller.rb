@@ -4,6 +4,7 @@ class AnswersController < ApplicationController
     # p params
     @question = Question.find(params[:question_id])
     @question.answers.create(answer_params)
+    redirect_to question_path(@question)
   end
   
   # 回答の削除
