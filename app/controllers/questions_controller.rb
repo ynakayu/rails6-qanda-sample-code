@@ -9,7 +9,6 @@ class QuestionsController < ApplicationController
   def show
     # p params[:id]
     @question = Question.find(params[:id])
-    p @question
   end
   
   # 質問の作成
