@@ -1,15 +1,17 @@
 class AnswersController < ApplicationController
-  # 回答の作成
-  def create
-    
-  end
-  
   # 回答の登録
-  def new
-  
+  def create
+    # p params
+    @question = Question.find(params[:question_id])
+    @question.answers.create(answer_params)
   end
   
   # 回答の削除
   def destroy
+  end
+  
+  private
+  def answer_params
+    params.require(:answer).permit(:name, :content)
   end
 end
